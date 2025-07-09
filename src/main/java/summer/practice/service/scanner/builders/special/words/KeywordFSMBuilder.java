@@ -11,7 +11,6 @@ public class KeywordFSMBuilder extends SpecialWordsFSMBuilder {
     public FSM build() {
 
         words = new ArrayList<>(List.of(
-                "SELECT",
                 "DISTINCT",
                 "FROM",
                 "LEFT",
