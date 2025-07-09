@@ -7,6 +7,7 @@ import summer.practice.service.scanner.builders.IdentifierFSMBuilder;
 import summer.practice.service.scanner.builders.LiteralFSMBuilder;
 import summer.practice.service.scanner.builders.NumberFSMBuilder;
 import summer.practice.service.scanner.builders.PunctuationFSMBuilder;
+import summer.practice.service.scanner.builders.special.words.DmlFSMBuilder;
 import summer.practice.service.scanner.builders.special.words.KeywordFSMBuilder;
 import summer.practice.service.scanner.finite.automata.FSM;
 import summer.practice.service.enums.Category;
@@ -25,6 +26,7 @@ public class Scanner implements LexicallyAnalysable {
         fsms = new LinkedHashMap<>();
 
         Map<Category, FSMBuilder> builders = new LinkedHashMap<>() {{
+            put(Category.DML, new DmlFSMBuilder());
             put(Category.KEYWORD, new KeywordFSMBuilder());
             put(Category.IDENTIFIER, new IdentifierFSMBuilder());
             put(Category.NUMBER, new NumberFSMBuilder());
@@ -56,7 +58,8 @@ public class Scanner implements LexicallyAnalysable {
 
                 if (fsm.simulate(part)) {
 
-                    tokens.add(new Token(category.equals(Category.KEYWORD) ? part.toUpperCase() : part, category));
+                    tokens.add(new Token(List.of(Category.DML,
+                            Category.KEYWORD).contains(category) ? part.toUpperCase() : part, category));
                     isFound = true;
                     break;
                 }
