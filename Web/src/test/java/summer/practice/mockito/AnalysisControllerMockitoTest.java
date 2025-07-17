@@ -22,9 +22,9 @@ import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
@@ -86,6 +86,6 @@ public class AnalysisControllerMockitoTest {
 
         Assertions.assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
         Assertions.assertEquals("SQL query can't be empty", response.getBody());
-        verify(scanner, atLeastOnce()).tryAnalyse(emptyRequest.getSqlQuery(), new ArrayList<>());
+        verify(scanner, times(1)).tryAnalyse(emptyRequest.getSqlQuery(), new ArrayList<>());
     }
 }
