@@ -5,7 +5,6 @@ import summer.practice.dto.AnalysisResult;
 import summer.practice.enums.Category;
 import summer.practice.scanner.Token;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
