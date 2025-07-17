@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SpecialWordsFsmBuilderUnitTest {
     @Test
-    void testDmlFSMBuilder() {
+    public void testDmlFSMBuilder() {
         DmlFSMBuilder builder = new DmlFSMBuilder();
         FSM fsm = builder.build();
 
@@ -29,7 +29,7 @@ public class SpecialWordsFsmBuilderUnitTest {
     }
 
     @Test
-    void testKeywordFSMBuilder() {
+    public void testKeywordFSMBuilder() {
         KeywordFSMBuilder builder = new KeywordFSMBuilder();
         FSM fsm = builder.build();
 
@@ -49,7 +49,7 @@ public class SpecialWordsFsmBuilderUnitTest {
     }
 
     @Test
-    void testSharedStateInSpecialWords() {
+    public void testSharedStateInSpecialWords() {
         DmlFSMBuilder dmlBuilder = new DmlFSMBuilder();
         KeywordFSMBuilder keywordBuilder = new KeywordFSMBuilder();
 
@@ -64,7 +64,7 @@ public class SpecialWordsFsmBuilderUnitTest {
     }
 
     @Test
-    void testEmptyInput() {
+    public void testEmptyInput() {
         DmlFSMBuilder builder = new DmlFSMBuilder();
         FSM fsm = builder.build();
 

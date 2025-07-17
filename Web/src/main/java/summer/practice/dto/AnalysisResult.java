@@ -1,11 +1,9 @@
 package summer.practice.dto;
 
-import lombok.Getter;
 import summer.practice.scanner.Token;
 
 import java.util.List;
 
-@Getter
 public class AnalysisResult {
 
     private final List<Token> lexicalResult;
@@ -14,4 +12,7 @@ public class AnalysisResult {
         this.lexicalResult = lexical;
     }
 
+    public List<Token> getLexicalResult() {
+        return lexicalResult;
+    }
 }

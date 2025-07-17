@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class FSMBuilderUnitTest {
 
     @Test
-    void testIdentifierFSMBuilder() {
+    public void testIdentifierFSMBuilder() {
         IdentifierFSMBuilder builder = new IdentifierFSMBuilder();
         FSM fsm = builder.build();
 
@@ -31,7 +31,7 @@ class FSMBuilderUnitTest {
     }
 
     @Test
-    void testLiteralFSMBuilder() {
+    public void testLiteralFSMBuilder() {
         LiteralFSMBuilder builder = new LiteralFSMBuilder();
         FSM fsm = builder.build();
 
@@ -45,7 +45,7 @@ class FSMBuilderUnitTest {
     }
 
     @Test
-    void testLogicalOperatorFSMBuilder() {
+    public void testLogicalOperatorFSMBuilder() {
         LogicalOperatorFSMBuilder builder = new LogicalOperatorFSMBuilder();
         FSM fsm = builder.build();
 
@@ -59,7 +59,7 @@ class FSMBuilderUnitTest {
     }
 
     @Test
-    void testNumberFSMBuilder() {
+    public void testNumberFSMBuilder() {
         NumberFSMBuilder builder = new NumberFSMBuilder();
         FSM fsm = builder.build();
 
@@ -74,7 +74,7 @@ class FSMBuilderUnitTest {
     }
 
     @Test
-    void testPunctuationFSMBuilder() {
+    public void testPunctuationFSMBuilder() {
         PunctuationFSMBuilder builder = new PunctuationFSMBuilder();
         FSM fsm = builder.build();
 
