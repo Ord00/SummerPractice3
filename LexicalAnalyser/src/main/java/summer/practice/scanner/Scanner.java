@@ -7,6 +7,7 @@ import summer.practice.interfaces.LexicallyAnalysable;
 import summer.practice.scanner.builders.FSMBuilder;
 import summer.practice.scanner.builders.IdentifierFSMBuilder;
 import summer.practice.scanner.builders.LiteralFSMBuilder;
+import summer.practice.scanner.builders.LogicalOperatorFSMBuilder;
 import summer.practice.scanner.builders.NumberFSMBuilder;
 import summer.practice.scanner.builders.PunctuationFSMBuilder;
 import summer.practice.scanner.builders.special.words.DmlFSMBuilder;
@@ -26,6 +27,7 @@ public class Scanner implements LexicallyAnalysable {
         fsms = new LinkedHashMap<>();
 
         Map<Category, FSMBuilder> builders = new LinkedHashMap<>() {{
+            put(Category.LOGICAL_OPERATOR, new LogicalOperatorFSMBuilder());
             put(Category.DML, new DmlFSMBuilder());
             put(Category.KEYWORD, new KeywordFSMBuilder());
             put(Category.IDENTIFIER, new IdentifierFSMBuilder());
@@ -35,11 +37,10 @@ public class Scanner implements LexicallyAnalysable {
         }};
 
         Category[] categories = Category.values();
-        int len = categories.length;
 
-        for (int i = 0; i < len - 2; ++i) {
-            FSMBuilder fsmBuilder = builders.get(categories[i]);
-            fsms.put(categories[i], fsmBuilder.build());
+        for (Category category : categories) {
+            FSMBuilder fsmBuilder = builders.get(category);
+            fsms.put(category, fsmBuilder.build());
         }
     }
 
